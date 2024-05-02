@@ -1,4 +1,3 @@
-import React from "react";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
@@ -10,12 +9,12 @@ const Home = () => {
         <Sidebar />
       </div>
 
-      <div className="w-10/12 flex flex-col">
+      <div className="w-10/12 flex flex-col bg-[]">
         <Header />
         <Outlet />
       </div>
     </div>
   );
 };
-
+   
 export default Home;

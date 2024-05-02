@@ -1,18 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import Logo from "./svg/logo";
-import AssessmentLogo from "./svg/assessmentIcon";
-import GraderIcon from "./svg/graderIcon";
-import PermissionIcon from "./svg/permissionIcon";
+import Logo from "@/components/svg/logo";
+import AssessmentLogo from "../svg/assessmentIcon";
+import GraderIcon from "../svg/graderIcon";
+import PermissionIcon from "../svg/permissionIcon";
 import { useNavigate } from "react-router-dom";
-import { logo } from "../assets";
 
 export default function Sidebar() {
     const nav = useNavigate();
     const [active, setActive] = useState(1);
   return (
     <div className="w-[265px] pt-[24px] p-[32px] bg-white  flex-col flex gap-[58px] font-Matter fixed h-[100vh]">
-      <img src={logo} alt="logo" />
+      <Logo />
       <div className="flex flex-col gap-[32px]">
         <div
           onClick={() => {

@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 
 const Header = () => {
   return (
-    <div className="w-100 h-[10dvh] p-6 border-b-neutral-600 flex justify-end items-center">
+    <div className="flex  bg-[#FFFFFF] items-center justify-end min-h-[80px] p-[20px]">
       <div className="flex items-center gap-2 p-4 justify-between">
         <span className="rounded-full width-[2rem] bg-neutral-800" />
 
