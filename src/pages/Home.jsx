@@ -1,20 +1,26 @@
-import React from "react";
+import { createContext, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
 
-const Home = () => {
-  return (
-    <div className="w-100 flex">
-      <div className="w-2/12">
-        <Sidebar />
-      </div>
+export const ModalContext = createContext();
 
-      <div className="w-10/12 flex flex-col">
-        <Header />
-        <Outlet />
+const Home = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  return (
+    <ModalContext.Provider value={{ showModal, setShowModal }}>
+      <div className="w-100 flex">
+        <div className="w-2/12">
+          <Sidebar />
+        </div>
+
+        <div className="w-10/12 flex flex-col">
+          <Header />
+          <Outlet />
+        </div>
       </div>
-    </div>
+    </ModalContext.Provider>
   );
 };
 

@@ -1,3 +1,5 @@
+import { useContext } from "react";
+
 import {
   TableRow,
   TableHeaderCell,
@@ -9,8 +11,11 @@ import {
   Icon,
   Table,
 } from "semantic-ui-react";
+import { ModalContext } from "../pages/Home";
 
-const MUITable = ({ setShowModal }) => {
+const SUITable = () => {
+  const { setShowModal } = useContext(ModalContext);
+
   return (
     <Table>
       <TableHeader>
@@ -55,4 +60,4 @@ const MUITable = ({ setShowModal }) => {
   );
 };
 
-export default MUITable;
+export default SUITable;
