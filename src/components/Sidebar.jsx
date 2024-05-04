@@ -5,8 +5,13 @@ const Sidebar = () => {
   const nav = useNavigate();
 
   return (
-    <div className="w-100 h-dvh fixed p-6 bg-slate-100 flex flex-col justify-between shadow-zinc-800">
-      <img src={logo} alt="logo" />
+    <div className="w-100 h-dvh p-6 bg-slate-100 flex flex-col justify-between shadow-zinc-800">
+      <img
+        src={logo}
+        alt="logo"
+        className="cursor-pointer"
+        onClick={() => nav("/")}
+      />
 
       <div className="h-[40%] text-zinc-500 flex flex-col justify-between gap-4">
         <div className="flex justify-between items-center">
