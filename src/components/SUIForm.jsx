@@ -12,6 +12,7 @@ const BASE_URL =
 
 const SUIForm = () => {
   const nav = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     marks: 0,
     dependencyLevel: 0,
@@ -42,11 +43,12 @@ const SUIForm = () => {
   };
 
   const handleGrade = async () => {
+    setLoading(true);
+    toast.success("Performing grading. Be patient.");
     const formData = new FormData();
     for (const [key, val] of Object.entries(form)) {
       formData.append(key, val);
     }
-
     mutate(formData);
   };
 
@@ -69,10 +71,12 @@ const SUIForm = () => {
   ];
 
   if (isError) {
-    toast.error(error.message);
+    setLoading(false);
+    toast.error(error?.message);
   }
 
   if (isSuccess) {
+    setLoading(false);
     toast.success("Grading succesful");
     setTimeout(() => {
       nav("/results");
@@ -152,7 +156,7 @@ const SUIForm = () => {
       </div>
 
       <Button primary type="submit" onClick={handleGrade}>
-        {isFetching || isLoading ? "Grading..." : "Grade"}
+        {isFetching || isLoading || loading ? "Grading..." : "Grade"}
       </Button>
     </Form>
   );

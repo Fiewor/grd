@@ -8,8 +8,6 @@ const Results = () => {
     select: (mutation) => mutation.state?.data?.data,
   });
 
-  console.log("data: ", data);
-
   const {
     data: { gradingReponse, markingGuide, question },
   } = data[0];
