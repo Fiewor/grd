@@ -5,8 +5,10 @@ import RDocument from "./RDocument";
 const Results = () => {
   const data = useMutationState({
     filters: "gradeData",
-    select: (mutation) => mutation.state.data.data,
+    select: (mutation) => mutation.state?.data?.data,
   });
+
+  console.log("data: ", data);
 
   const {
     data: { gradingReponse, markingGuide, question },
