@@ -31,9 +31,9 @@ const SUITable = () => {
 
       <TableBody>
         <TableRow>
-          <TableCell>PHY 101</TableCell>
+          <TableCell>Test 101</TableCell>
           <TableCell>05 April 2024</TableCell>
-          <TableCell>30</TableCell>
+          <TableCell>1</TableCell>
           <TableCell>-</TableCell>
           <TableCell>10 April 2024</TableCell>
           <TableCell>Ungraded</TableCell>
