@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 const BASE_URL =
   !process.env.NODE_ENV || process.env.NODE_ENV === "development"
     ? "http://localhost:4000"
-    : "https://gradr-backend.onrender.com"; //! TODO: update with live API
+    : "https://gradr-backend.onrender.com";
 
 const SUIForm = () => {
   const nav = useNavigate();
