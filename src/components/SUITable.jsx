@@ -33,7 +33,7 @@ const SUITable = () => {
         <TableRow>
           <TableCell>Test 101</TableCell>
           <TableCell>05 April 2024</TableCell>
-          <TableCell>1</TableCell>
+          <TableCell>3</TableCell>
           <TableCell>-</TableCell>
           <TableCell>10 April 2024</TableCell>
           <TableCell>Ungraded</TableCell>
