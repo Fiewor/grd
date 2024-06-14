@@ -28,7 +28,9 @@ const Sidebar = () => {
 
         <div className="flex justify-start gap-4 items-center">
           <img src={personalcard} alt="icon" />
-          <p className="cursor-pointer">Submissions</p>
+          <p className="cursor-pointer" onClick={() => nav("/submissions")}>
+            Submissions
+          </p>
         </div>
 
         <div className="flex justify-start gap-4 items-center">
