@@ -19,17 +19,17 @@ const Results = () => {
     select: (mutation) => mutation.state?.data?.data,
   });
 
-  let _gradingReponse = [];
+  let _gradingResponse = [];
 
   if (data?.length) {
     const {
-      data: { gradingReponse },
+      data: { gradingResponse }, // gradingResponse
     } = data[0];
 
-    _gradingReponse = gradingReponse;
+    _gradingResponse = gradingResponse;
   }
 
-  console.log("gradingReponse: ", _gradingReponse);
+  console.log("gradingResponse: ", _gradingResponse);
 
   const exportToExcel = () => {
     //! TO-DO: implement functionality
@@ -48,7 +48,7 @@ const Results = () => {
         </TableHeader>
 
         <TableBody>
-          {_gradingReponse
+          {_gradingResponse
             ?.map(({ value }) => JSON.parse(value))
             .map(({ score }, id) => (
               <TableRow key={id}>
