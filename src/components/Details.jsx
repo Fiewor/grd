@@ -19,21 +19,30 @@ const Details = () => {
     _score = "",
     _explanation = "",
     _feedback = "",
-    _onlineAnswers = "";
+    _onlineAnswers = "",
+    _filePath = "";
 
   if (data?.length) {
     const {
-      data: { gradingReponse, markingGuide, question, onlineAnswers },
+      data: {
+        question,
+        markingGuide,
+        gradingResponse,
+        onlineAnswers,
+        answerFilesUrls,
+      },
     } = data[0];
 
+    _filePath = answerFilesUrls[id];
     _markingGuide = markingGuide;
     _question = question;
     _onlineAnswers = onlineAnswers;
 
-    if (gradingReponse?.length) {
-      const { score, explanation, feedback } = gradingReponse.map(({ value }) =>
-        JSON.parse(value)
+    if (gradingResponse?.length) {
+      const { score, explanation, feedback } = gradingResponse.map(
+        ({ value }) => JSON.parse(value)
       )[id];
+      //! TO-DO: remove special characters(/n, *) and format appropriately
       _score = score;
       _explanation = explanation;
       _feedback = feedback;
@@ -54,7 +63,9 @@ const Details = () => {
           onClick={() => setClicked(0)}
         >
           <p className="text-xl">Question</p>
-          <p>{_question}</p>
+          <pre>{_question}</pre>
+
+          {!!_filePath && <img src={_filePath} alt="student's answer" />}
         </div>
 
         <div
@@ -64,7 +75,7 @@ const Details = () => {
           onClick={() => setClicked(1)}
         >
           <p className="text-xl">Marking guide</p>
-          {_markingGuide}
+          <pre>{_markingGuide}</pre>
         </div>
 
         <div
@@ -75,22 +86,22 @@ const Details = () => {
         >
           <div>
             <p className="text-xl">Score</p>
-            {_score}
+            <p>{_score}</p>
           </div>
 
           <div>
             <p className="text-xl">Explanation</p>
-            {_explanation}
+            <p>{_explanation}</p>
           </div>
 
           <div>
             <p className="text-xl">Feedback</p>
-            {_feedback}
+            <p>{_feedback}</p>
           </div>
 
           <div>
             <p className="text-xl">Online Answers</p>
-            {_onlineAnswers}
+            <pre>{_onlineAnswers}</pre>
           </div>
         </div>
       </div>
