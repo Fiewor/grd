@@ -11,7 +11,10 @@ const Details = () => {
 
   const data = useMutationState({
     filters: "gradeData",
-    select: (mutation) => mutation.state?.data?.data,
+    select: (mutation) => {
+      let data = mutation.state?.data?.data;
+      if (data) return data;
+    },
   });
 
   let _markingGuide = "",
@@ -22,6 +25,7 @@ const Details = () => {
     _onlineAnswers = "",
     _filePath = "";
 
+  console.log("data: ", data);
   if (data?.length) {
     const {
       data: {

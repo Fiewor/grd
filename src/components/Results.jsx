@@ -16,11 +16,14 @@ const Results = () => {
   const nav = useNavigate();
   const data = useMutationState({
     filters: "gradeData",
-    select: (mutation) => mutation.state?.data?.data,
+    select: (mutation) => {
+      let data = mutation.state?.data?.data;
+      if (data) return data;
+    },
   });
 
   let _gradingResponse = [];
-
+  console.log("data: ", data);
   if (data?.length) {
     const {
       data: { gradingResponse }, // gradingResponse
